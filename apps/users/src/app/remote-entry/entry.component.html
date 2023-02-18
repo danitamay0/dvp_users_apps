@@ -1,0 +1,16 @@
+<!-- <users-apps-nav-bar></users-apps-nav-bar> -->
+<div class="h-full bg-blue">
+
+    <mat-drawer-container class="h-full" autosize>
+        <mat-drawer #drawer class="example-sidenav" class="p-3" mode="side">
+            <h3 class="text-3xl font-bold text-blue mb-3">Menu</h3>
+            <a [routerLink]="[ menu.path ]" class="py-2 mb-2 flex cursor-pointer items-center" *ngFor="let menu of menuItems">
+                <mat-icon class="text-blue mr-2">{{menu.icon}}</mat-icon>
+                {{menu.title}}
+            </a>
+        </mat-drawer>
+
+        <users-apps-navbar title="Users" [showMenu]="true" (menuClicked)="drawer.toggle()"></users-apps-navbar>
+        <router-outlet></router-outlet>
+    </mat-drawer-container>
+</div>

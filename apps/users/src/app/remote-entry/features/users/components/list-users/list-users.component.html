@@ -1,0 +1,24 @@
+<section>
+    <h3 class="text-2xl font-bold mb-2">User list</h3>
+    <mat-progress-bar *ngIf="fetching=='pending'" mode="indeterminate"></mat-progress-bar>
+    <section *ngIf="fetching=='rejected'">
+        <h3 class="text-red text-sm">An error has occurred</h3>
+    </section>
+
+    <div class="flex flex-wrap">
+        <mat-card *ngFor="let u of users" class="mr-2 mt-4 ">
+            <mat-card-content>
+                <div class="flex items-center justify-center">
+                    <div
+                        class="rounded-full mr-2  p-2   text-white bg-blue items-center justify-center text-center w-10 cursor-pointer">
+                        {{u.user[0]}}
+                    </div>
+                    <h3>
+                        {{u.user}}
+                    </h3>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</section>

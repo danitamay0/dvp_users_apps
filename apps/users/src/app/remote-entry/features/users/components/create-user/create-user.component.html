@@ -1,0 +1,31 @@
+<section class=" h-full p-8">
+    <form class="h-full" (ngSubmit)="createUser()" [formGroup]="form">
+        <h3 class="text-2xl mb-1 font-bold">Create users</h3>
+
+        <section class="w-full flex ">
+            <mat-form-field class="w-1/2 mr-2" appearance="fill">
+                <mat-label>User</mat-label>
+                <input formControlName="user" matInput placeholder="User">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="w-1/2" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input formControlName="password" type="password" matInput placeholder="Password">
+                <mat-icon matSuffix>password</mat-icon>
+            </mat-form-field>
+
+        </section>
+        <button type="submit" [disabled]="form.invalid" class="w-full mt-4" mat-flat-button color="primary">
+            {{fetching==='pending' ? 'Saving...' :'Create User'}}
+            <mat-icon *ngIf="fetching!='pending'">people</mat-icon>
+            <mat-icon *ngIf="fetching=='pending'">autorenew</mat-icon>
+        </button>
+    </form>
+
+    <section *ngIf="fetching=='rejected'">
+        <span class="text-1xl text-red font-bold">
+            {{errorMessage || 'An error has occurred'}}
+        </span>
+    </section>
+</section>

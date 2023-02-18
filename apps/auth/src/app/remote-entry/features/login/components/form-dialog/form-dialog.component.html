@@ -1,0 +1,12 @@
+<h3 mat-dialog-title>
+    <span class="font-bold text-purple">
+        Choose an app
+    </span>
+
+</h3>
+<div mat-dialog-content>
+    <div (click)="redirect(app.path)" class="flex items-center mb-2 cursor-pointer" *ngFor="let app of apps">
+        <mat-icon class="mr-2">{{app.icon}}</mat-icon>
+        {{app.title}}
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<section class=" h-full p-8">
+    <form class="h-full" (ngSubmit)="logIng()" [formGroup]="form">
+        <section class="h-full flex flex-col items-center justify-center">
+            <h3 class="text-3xl mb-1 font-bold">Hello!</h3>
+            <h3 class="text-1xl mb-8">Sing In!</h3>
+            <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Your User</mat-label>
+                <input formControlName="user" matInput placeholder="User">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Your Password</mat-label>
+                <input formControlName="password" type="password" matInput placeholder="Password">
+                <mat-icon matSuffix>password</mat-icon>
+            </mat-form-field>
+
+            <span *ngIf="fetching=='rejected'" class="font-bold text-base text-red">incorrect credentials</span>
+
+           <button type="submit" [disabled]="form.invalid" class="w-full mt-4" mat-flat-button color="primary">SignIn 
+            <mat-icon *ngIf="fetching!='pending'">login</mat-icon>
+            <mat-icon *ngIf="fetching=='pending'">autorenew</mat-icon>
+           </button>
+
+        </section>
+    </form>
+</section>

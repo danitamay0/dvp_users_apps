@@ -1,0 +1,45 @@
+<section>
+    <h3 class="text-2xl font-bold mb-2">Pepople list</h3>
+    <mat-progress-bar *ngIf="fetching=='pending'" mode="indeterminate"></mat-progress-bar>
+    <section *ngIf="fetching=='rejected'">
+        <h3 class="text-red text-sm">An error has occurred</h3>
+    </section>
+
+    <div class="flex flex-wrap">
+        <mat-card *ngFor="let person of people" class="mr-2 mt-4 p-2 ">
+            <mat-card-content>
+                <div class="flex items-center justify-center mb-4">
+                    <div
+                        class="rounded-full mr-2  p-2   text-white bg-blue items-center justify-center text-center w-10 cursor-pointer">
+                        {{person.firstName[0]}}
+                    </div>
+                    <h3>
+                        {{person.firstName}}
+                    </h3>
+                </div>
+
+                <section class="flex mb-1">
+                    <p class="text-md font-bold mr-4">Full Name: </p>
+                    <p class="text-md ">{{person.fullName}}</p>
+                </section>
+                <section class="flex mb-1" >
+                    <p class="text-md font-bold mr-4">Identifier: </p>
+                    <p class="text-md ">{{person.identifier}}</p>
+                </section>
+                <section class="flex mb-1" >
+                    <p class="text-md font-bold mr-4">Type Identifier: </p>
+                    <p class="text-md ">{{person.typeIdentifier}}</p>
+                </section>
+                <section class="flex mb-1">
+                    <p class="text-md font-bold mr-4">Email: </p>
+                    <p class="text-md ">{{person.email}}</p>
+                </section>
+                <section class="flex mb-1">
+                    <p class="text-md font-bold mr-4">Cod: </p>
+                    <p class="text-md ">{{person.fullIdentifier}}</p>
+                </section>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</section>

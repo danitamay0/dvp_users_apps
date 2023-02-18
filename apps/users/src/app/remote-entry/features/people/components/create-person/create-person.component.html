@@ -1,0 +1,53 @@
+<section class=" h-full p-8">
+    <form class="h-full" (ngSubmit)="createPerson()" [formGroup]="form">
+        <h3 class="text-2xl mb-1 font-bold">Create People</h3>
+
+        <section class="w-full  ">
+            <section class="flex">
+
+                <mat-form-field class="w-1/2 mr-2" appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input formControlName="first_name" matInput placeholder="First Name">
+                </mat-form-field>
+
+                <mat-form-field class="w-1/2" appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input formControlName="last_name" matInput placeholder="Last Name">
+                </mat-form-field>
+            </section>
+
+            <section class="flex ">
+                <mat-form-field class="w-1/2 mr-2" appearance="fill">
+                    <mat-label>Type Identifier</mat-label>
+                    <mat-select formControlName="type_identifier">
+                        <mat-option *ngFor="let typeIdentifier of typesIdentifier" [value]="typeIdentifier">
+                            {{typeIdentifier}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="w-1/2" appearance="fill">
+                    <mat-label>Identifier</mat-label>
+                    <input formControlName="identifier" matInput placeholder="Identifier">
+                </mat-form-field>
+            </section>
+
+            <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" type="email" matInput placeholder="Email">
+            </mat-form-field>
+        </section>
+
+        <button type="submit" [disabled]="form.invalid" class="w-full mt-4" mat-flat-button color="primary">
+            {{fetching==='pending' ? 'Saving...' :'Create Person'}}
+            <mat-icon *ngIf="fetching!='pending'">people</mat-icon>
+            <mat-icon *ngIf="fetching=='pending'">autorenew</mat-icon>
+        </button>
+    </form>
+
+    <section *ngIf="fetching=='rejected'">
+        <span class="text-1xl text-red font-bold">
+            {{errorMessage || 'An error has occurred'}}
+        </span>
+    </section>
+</section>
