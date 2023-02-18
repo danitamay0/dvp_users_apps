@@ -5,7 +5,6 @@
 
 **Reactive State With [NgRx](https://ngrx.io)**
 **CSS Framework [TailwindCss](https://tailwindcss.com)**
-**CSS Framework [TailwindCss](https://tailwindcss.com)**
 **UI Components [AngularMaterial](https://material.angular.io/)**
 
 
